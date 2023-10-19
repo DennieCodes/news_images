@@ -4,6 +4,7 @@ import NewsList from './NewsList';
 import './App.css'
 
 function App() {
+
   const [search, setSearch] = useState("")
   const [displayResults, setDisplayResults] = useState(false);
 

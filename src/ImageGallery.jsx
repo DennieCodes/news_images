@@ -1,12 +1,13 @@
 // src/components/ImageGallery.js
-import React, { useState, useEffect } from 'react';
+import 'dotenv/config'
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function ImageGallery({ query }) {
+function ImageGallery(query) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const apiKey = 'PEXELS_API_KEY';
+    const apiKey = import.meta.env.PEXELS_API_KEY;
     const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=10`;
 
     axios

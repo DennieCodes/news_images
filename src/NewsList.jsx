@@ -1,12 +1,12 @@
 // src/components/NewsList.js
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function NewsList({ query }) {
+function NewsList(query) {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const apiKey = 'YOUR_NEWS_API_KEY';
+    const apiKey = import.meta.env.NEWS_API_KEY;
     const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
 
     axios
