@@ -1,13 +1,16 @@
 // src/components/NewsList.js
 import { useState, useEffect } from 'react';
+import secret from '../secret.js';
+
 import axios from 'axios';
 
-function NewsList(query) {
+function NewsList(props) {
+  const { query } = props;
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const apiKey = import.meta.env.NEWS_API_KEY;
-    const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
+    const apiKey = secret["NEWS_API_KEY"];
+    const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}&pageSize=3`;
 
     axios
       .get(apiUrl)
