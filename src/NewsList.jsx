@@ -23,7 +23,7 @@ function NewsList(props) {
   }, [query]);
 
   return (
-    <div>
+    <div className="section news">
       <h2>News Articles</h2>
       <ul>
         {articles.map((article) => (

@@ -10,7 +10,7 @@ function ImageGallery(props) {
 
   useEffect(() => {
     const apiKey = secret["PEXELS_API_KEY"];
-    const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=10`;
+    const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=6`;
 
     axios
       .get(apiUrl, {
@@ -28,7 +28,7 @@ function ImageGallery(props) {
   }, [query]);
 
   return (
-    <div>
+    <div className="section">
       <h2>Image Gallery</h2>
       <div className="image-grid">
         {images.map((image) => (
