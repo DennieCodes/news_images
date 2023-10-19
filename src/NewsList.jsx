@@ -6,12 +6,13 @@ function NewsList({ query }) {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const apiKey = 'YOUR_NEWS_API_KEY';
+    const apiKey = process.env.NEWS_API_KEY;
     const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
 
     axios
       .get(apiUrl)
       .then((response) => {
+        console.log(response)
         setArticles(response.data.articles);
       })
       .catch((error) => {

@@ -6,16 +6,17 @@ function ImageGallery({ query }) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const apiKey = 'PEXELS_API_KEY';
+    const apiKey = process.env.PEXELS_API_KEY;
     const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=10`;
 
     axios
       .get(apiUrl, {
         headers: {
-          Authorization: 'PEXELS_API_KEY',
+          Authorization: apiKey,
         },
       })
       .then((response) => {
+        console.log(response)
         setImages(response.data.photos);
       })
       .catch((error) => {

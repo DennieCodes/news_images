@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-
+import ImageGallery  from './ImageGallery'
+import NewsList from './NewsList'
 function App() {
   const [search, setSearch] = useState("")
 
