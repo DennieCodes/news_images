@@ -1,11 +1,15 @@
 import { useState } from 'react'
+import ImageGallery from './ImageGallery';
+import NewsList from './NewsList';
 import './App.css'
 
 function App() {
   const [search, setSearch] = useState("")
+  const [displayResults, setDisplayResults] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setDisplayResults(true);
   }
 
   const handleSearchChange = (event) => {
@@ -21,6 +25,15 @@ function App() {
           <button type="submit">Search</button>
         </form>
       </div>
+
+      { displayResults ?
+       ( <div>
+          < NewsList query={search} />
+          < ImageGallery query={search} />
+        </div>
+
+       ) : (<></>)
+      };
 
     </>
   )
